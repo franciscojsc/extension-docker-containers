@@ -79,7 +79,7 @@ module.exports = (refresh, name) => {
     openShell: {
       label: 'Open Shell',
       click() {
-        execPromise(
+        exec(
           `x-terminal-emulator -e "/bin/bash -c 'docker container exec -it ${name} /bin/bash'"`
         ).on('error', () => {
           growl.notify('Shell not available');
