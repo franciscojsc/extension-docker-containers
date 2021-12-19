@@ -1,0 +1,29 @@
+{
+  "name": "extension-docker-containers",
+  "version": "1.0.0",
+  "description": "Extension for Docker containers in Ubuntu or derivatives",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "electron ./src/index.js",
+    "build": "electron-packager . extension-docker-containers --platform linux --arch x64 --out dist/",
+    "deb64": "electron-installer-debian --src dist/extension-docker-containers-linux-x64/ --dest dist/installers/ --arch amd64"
+  },
+  "keywords": [
+    "docker",
+    "extension",
+    "containers",
+    "xubuntu",
+    "ubuntu"
+  ],
+  "author": "Francisco Chaves",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^16.0.5",
+    "electron-installer-debian": "^3.1.0",
+    "electron-packager": "^15.4.0"
+  },
+  "dependencies": {
+    "mydockerjs": "^2.14.2",
+    "notify-send": "^0.1.2"
+  }
+}
