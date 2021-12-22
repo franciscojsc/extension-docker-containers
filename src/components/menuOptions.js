@@ -78,13 +78,38 @@ module.exports = (refresh, name) => {
     },
     openShell: {
       label: 'Open Shell',
-      click() {
-        exec(
-          `x-terminal-emulator -e "/bin/bash -c 'docker container exec -it ${name} /bin/bash'"`
-        ).on('error', () => {
-          growl.notify('Shell not available');
-        });
-      },
+      submenu: [
+        {
+          label: 'ash',
+          click() {
+            exec(
+              `x-terminal-emulator -e "/bin/bash -c 'docker container exec -it ${name} /bin/ash'"`
+            ).on('error', () => {
+              growl.notify('Shell not available');
+            });
+          },
+        },
+        {
+          label: 'bash',
+          click() {
+            exec(
+              `x-terminal-emulator -e "/bin/bash -c 'docker container exec -it ${name} /bin/bash'"`
+            ).on('error', () => {
+              growl.notify('Shell not available');
+            });
+          },
+        },
+        {
+          label: 'sh',
+          click() {
+            exec(
+              `x-terminal-emulator -e "/bin/bash -c 'docker container exec -it ${name} /bin/sh'"`
+            ).on('error', () => {
+              growl.notify('Shell not available');
+            });
+          },
+        },
+      ],
     },
     logs: {
       label: 'Logs',
